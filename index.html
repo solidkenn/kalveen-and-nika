@@ -473,7 +473,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 2.25rem 1.85rem;
+    overflow: hidden;
     position: relative;
     transition: border-color 0.3s, box-shadow 0.3s;
     box-shadow: var(--shadow-sm);
@@ -482,6 +482,19 @@
   .detail-card:hover {
     border-color: var(--border-bright);
     box-shadow: var(--shadow-md);
+  }
+
+  .detail-venue-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: center 60%;
+    display: block;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .detail-body {
+    padding: 2rem 1.85rem;
   }
 
   .detail-icon {
@@ -1246,18 +1259,23 @@
 
   <div class="details-grid">
     <div class="detail-card">
-      <div class="detail-icon"></div>
-      <p class="detail-title">Ceremony</p>
-      <p class="detail-main">St. Benedict Parish</p>
-      <p class="detail-sub">Ayala WestGrove<br>Silang, Cavite<br><br>April 18, 2026 · 2:00 PM</p>
-      <a href="https://www.google.com/maps?q=14.239597,121.040855" target="_blank" class="detail-link">Open in Maps →</a>
+      <img src="images/venue-ceremony.png" alt="St. Benedict Parish, Silang Cavite" class="detail-venue-img" loading="lazy" decoding="async">
+      <div class="detail-body">
+        <div class="detail-icon"></div>
+        <p class="detail-title">Ceremony</p>
+        <p class="detail-main">St. Benedict Parish</p>
+        <p class="detail-sub">Ayala WestGrove<br>Silang, Cavite<br><br>April 18, 2026 · 2:00 PM</p>
+        <a href="https://www.google.com/maps?q=14.239597,121.040855" target="_blank" class="detail-link">Open in Maps →</a>
+      </div>
     </div>
     <div class="detail-card">
-      <div class="detail-icon"></div>
-      <p class="detail-title">Reception</p>
-      <p class="detail-main">Alta Veranda de Tibig</p>
-      <p class="detail-sub">Alcalde St., Brgy. Tibig<br>Silang, Cavite<br><br>Immediately after the ceremony</p>
-      <a href="https://www.google.com/maps?q=14.229485,121.007672" target="_blank" class="detail-link">Open in Maps →</a>
+      <div class="detail-body">
+        <div class="detail-icon"></div>
+        <p class="detail-title">Reception</p>
+        <p class="detail-main">Alta Veranda de Tibig</p>
+        <p class="detail-sub">Alcalde St., Brgy. Tibig<br>Silang, Cavite<br><br>Immediately after the ceremony</p>
+        <a href="https://www.google.com/maps?q=14.229485,121.007672" target="_blank" class="detail-link">Open in Maps →</a>
+      </div>
     </div>
   </div>
 
