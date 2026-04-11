@@ -701,36 +701,131 @@
   /* GIFTS */
   .gift-box {
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2.75rem 2rem;
+    border-radius: 14px;
+    padding: 3.5rem 2.5rem;
     text-align: center;
     margin-top: 3rem;
     background: var(--surface);
     position: relative;
     box-shadow: var(--shadow-sm);
+    overflow: hidden;
   }
 
+  /* top center heart badge */
   .gift-box::before {
-    content: '♡';
+    content: '\2665';
     position: absolute;
-    top: -0.7rem;
+    top: -1rem;
     left: 50%;
     transform: translateX(-50%);
     background: var(--surface);
-    padding: 0 1rem;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.2rem 1.1rem;
     color: var(--accent-sage);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    z-index: 1;
+    line-height: 1.4;
+    font-family: serif;
+  }
+
+  /* subtle background botanical watermark */
+  .gift-box::after {
+    content: '\2767';
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1rem;
+    font-size: 9rem;
+    color: var(--accent-sage);
+    opacity: 0.04;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    transform: rotate(-15deg);
+    font-family: serif;
+  }
+
+  /* decorative corner flourishes */
+  .gift-corner {
+    position: absolute;
+    font-size: 1.1rem;
+    color: var(--accent-sage);
+    opacity: 0.4;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .gift-corner.tl { top: 0.85rem; left: 1rem; }
+  .gift-corner.tr { top: 0.85rem; right: 1rem; }
+  .gift-corner.bl { bottom: 0.85rem; left: 1rem; }
+  .gift-corner.br { bottom: 0.85rem; right: 1rem; }
+
+  .gift-ornament-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+    color: var(--accent-sage);
+    opacity: 0.55;
+  }
+
+  .gift-ornament-top span {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 1;
+  }
+
+  .gift-ornament-top::before,
+  .gift-ornament-top::after {
+    content: '';
+    flex: 1;
+    max-width: 3.5rem;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--accent-sage));
+  }
+
+  .gift-ornament-top::after {
+    background: linear-gradient(to left, transparent, var(--accent-sage));
+  }
+
+  .gift-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1.5rem auto;
+    color: var(--accent-sage);
+    opacity: 0.5;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
   }
 
   .gift-verse {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.28rem;
+    font-size: 1.32rem;
     font-style: italic;
     font-weight: 400;
     color: var(--cream);
-    line-height: 1.82;
+    line-height: 1.88;
     max-width: 28rem;
     margin: 0 auto;
+  }
+
+  .gift-bottom-ornament {
+    margin-top: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--accent-sage);
+    opacity: 0.45;
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
   }
 
   /* GALLERY */
@@ -1400,14 +1495,28 @@
   <div class="section-rule"></div>
 
   <div class="gift-box">
+    <span class="gift-corner tl">&#10022;</span>
+    <span class="gift-corner tr">&#10022;</span>
+    <span class="gift-corner bl">&#10022;</span>
+    <span class="gift-corner br">&#10022;</span>
+
+    <div class="gift-ornament-top"><span>With Love</span></div>
+
     <p class="gift-verse">
       Your love, laughter, and company<br>
-      on our wedding day is the greatest gift of all.<br><br>
+      on our wedding day is the greatest gift of all.
+    </p>
+
+    <div class="gift-divider">· &#10047; ·</div>
+
+    <p class="gift-verse">
       But if a gift is on your mind,<br>
       a monetary contribution would be kind —<br>
       it will help us more than words can say<br>
       to celebrate our special day.
     </p>
+
+    <div class="gift-bottom-ornament">· · &#9825; · ·</div>
   </div>
 </section>
 
