@@ -1678,25 +1678,32 @@
     <div class="section-rule"></div>
     <p class="share-body">
       Caught a special moment on your camera? We'd love to see the day through your eyes.
-      Fill out the quick form below to upload your photos — no Google account needed!
+      Upload your photos directly — no account or sign-in needed!
     </p>
     <div class="share-steps">
       <div class="share-step">
         <div class="share-step-num">1</div>
-        <p class="share-step-text">Tap the button below to open the upload form</p>
+        <p class="share-step-text">Tap the button below to open the uploader</p>
       </div>
       <div class="share-step">
         <div class="share-step-num">2</div>
-        <p class="share-step-text">Enter your name and select your photos</p>
+        <p class="share-step-text">Choose photos from your camera roll or device</p>
       </div>
       <div class="share-step">
         <div class="share-step-num">3</div>
-        <p class="share-step-text">Hit submit — your photos reach us instantly!</p>
+        <p class="share-step-text">Hit upload — your photos reach us instantly!</p>
       </div>
     </div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf-CPYaTojx_7fK6ocQj3Ixf2yYdUaxOx2Wo4_4xHAMgCJYNg/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+
+    <div id="upload-success" style="display:none;margin-bottom:1.5rem;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:var(--accent-sage);text-align:center;">
+        ✦ Thank you! Your photos have been uploaded. ✦
+      </p>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="upload-btn" onclick="openFilestack()">
       Upload Your Photos
-    </a>
+    </button>
   </div>
 </section>
 
@@ -1838,6 +1845,23 @@
       closeLightbox();
     }
   });
+  // FILESTACK UPLOAD
+  function openFilestack() {
+    const client = filestack.init('AdAAjYLUqTSq0nSWvjcuBz');
+    client.picker({
+      accept: ['image/*'],
+      maxFiles: 20,
+      uploadInBackground: false,
+      fromSources: ['local_file_system', 'imagesearch', 'url'],
+      onUploadDone: function(result) {
+        if (result.filesUploaded && result.filesUploaded.length > 0) {
+          document.getElementById('upload-success').style.display = 'block';
+          document.getElementById('upload-btn').textContent = 'Upload More Photos';
+        }
+      }
+    }).open();
+  }
 </script>
+<script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
 </body>
 </html>
