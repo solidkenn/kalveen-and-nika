@@ -893,26 +893,53 @@
   .reminders-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.65rem;
+    gap: 0.85rem;
     margin-top: 3rem;
   }
 
   .reminder-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem 1.25rem;
+    border-radius: 14px;
+    overflow: hidden;
     text-align: center;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.35s cubic-bezier(0.33,1,0.68,1), box-shadow 0.35s;
+  }
+
+  .reminder-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .reminder-illustration {
+    width: 100%;
+    background: linear-gradient(180deg, #f6f9f7 0%, #edf3ef 100%);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem 1.5rem 1.25rem;
+  }
+
+  .reminder-illustration img {
+    display: block;
+    width: 100%;
+    max-width: 9rem;
+    height: auto;
+  }
+
+  .reminder-body {
+    padding: 1.35rem 1rem 1.6rem;
   }
 
   .reminder-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.75rem;
+    font-size: 2rem;
     font-weight: 400;
-    color: rgba(77, 109, 134, 0.35);
+    color: rgba(77, 109, 134, 0.3);
     line-height: 1;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.6rem;
   }
 
   .reminder-text {
@@ -1287,16 +1314,31 @@
     <div class="section-rule"></div>
     <div class="reminders-row">
       <div class="reminder-card">
-        <div class="reminder-num">I</div>
-        <p class="reminder-text">Please be on time</p>
+        <div class="reminder-illustration">
+          <img src="images/reminder-ontime.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">I</div>
+          <p class="reminder-text">Please be on time</p>
+        </div>
       </div>
       <div class="reminder-card">
-        <div class="reminder-num">II</div>
-        <p class="reminder-text">Stay for the whole event</p>
+        <div class="reminder-illustration">
+          <img src="images/reminder-staywhole.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">II</div>
+          <p class="reminder-text">Stay for the whole event</p>
+        </div>
       </div>
       <div class="reminder-card">
-        <div class="reminder-num">III</div>
-        <p class="reminder-text">Enjoy & have fun!</p>
+        <div class="reminder-illustration">
+          <img src="images/reminder-enjoy.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">III</div>
+          <p class="reminder-text">Enjoy & have fun!</p>
+        </div>
       </div>
     </div>
   </div>
