@@ -1231,6 +1231,88 @@
     padding: 2.5rem 0;
   }
 
+  /* SHARE PHOTOS */
+  #share-photos {
+    background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    max-width: 100%;
+    padding: 5.5rem 1.75rem;
+  }
+
+  .share-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .share-illustration {
+    width: 100%;
+    max-width: 18rem;
+    margin-bottom: 2rem;
+    opacity: 0.92;
+  }
+
+  .share-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .share-inner .section-tag { text-align: center; display: block; }
+  .share-inner .section-title { text-align: center; }
+  .share-inner .section-rule { margin: 1.5rem auto; }
+
+  .share-body {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.75;
+    max-width: 30rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .share-steps {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.25rem;
+    width: 100%;
+  }
+
+  .share-step {
+    flex: 1;
+    min-width: 10rem;
+    max-width: 13rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .share-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: rgba(77, 109, 134, 0.28);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .share-step-text {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
   /* ANIMATIONS */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1308,6 +1390,7 @@
     <li><a href="#attire" onclick="closeNav()">Attire</a></li>
     <li><a href="#gifts" onclick="closeNav()">Gifts</a></li>
     <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
+    <li><a href="#share-photos" onclick="closeNav()">Share Photos</a></li>
     <li><a href="#rsvp" onclick="closeNav()">RSVP</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleNav()">
@@ -1581,6 +1664,41 @@
     <img src="" alt="" id="lightbox-img" width="1200" height="800">
   </div>
 </div>
+
+<div class="ornament">· · ·</div>
+
+<!-- SHARE PHOTOS -->
+<section id="share-photos">
+  <div class="share-inner">
+    <div class="share-illustration">
+      <img src="images/share-photos.png" alt="" loading="lazy" decoding="async">
+    </div>
+    <span class="section-tag">Captured Moments</span>
+    <h2 class="section-title">Share Your Photos</h2>
+    <div class="section-rule"></div>
+    <p class="share-body">
+      Caught a special moment on your camera? We'd love to see the day through your eyes.
+      Upload your photos to our shared album and help us build a beautiful collection of memories together.
+    </p>
+    <div class="share-steps">
+      <div class="share-step">
+        <div class="share-step-num">1</div>
+        <p class="share-step-text">Tap the button below to open our shared album</p>
+      </div>
+      <div class="share-step">
+        <div class="share-step-num">2</div>
+        <p class="share-step-text">Tap the <strong>+</strong> icon to add your photos</p>
+      </div>
+      <div class="share-step">
+        <div class="share-step-num">3</div>
+        <p class="share-step-text">Your photos join our wedding album instantly</p>
+      </div>
+    </div>
+    <a href="https://photos.app.goo.gl/XEszyb5LvAdP88wV9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      Open Shared Album
+    </a>
+  </div>
+</section>
 
 <div class="ornament">· · ·</div>
 
