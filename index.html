@@ -411,6 +411,11 @@
     padding: 5.5rem 1.75rem;
     max-width: 52rem;
     margin: 0 auto;
+    scroll-margin-top: 4rem;
+  }
+
+  #share-photos, #rsvp {
+    scroll-margin-top: 4rem;
   }
 
   section.full-width {
@@ -1175,6 +1180,36 @@
     line-height: 1.65;
   }
 
+  .rsvp-closed-box {
+    margin-top: 2.5rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 3rem 2rem;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+  }
+
+  .rsvp-closed-icon {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--accent-sage);
+    margin-bottom: 1.25rem;
+    font-family: serif;
+    line-height: 1;
+  }
+
+  .rsvp-closed-msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.75;
+    max-width: 26rem;
+    margin: 0 auto;
+  }
+
   .section-tag--center {
     text-align: center;
     display: block;
@@ -1712,47 +1747,15 @@
 <!-- RSVP -->
 <section id="rsvp">
   <div class="rsvp-inner">
-    <span class="section-tag section-tag--center">Kindly reply by April 11, 2026</span>
-    <h2 class="section-title">RSVP</h2>
+    <span class="section-tag section-tag--center">RSVP</span>
+    <h2 class="section-title">RSVP is Now Closed</h2>
     <div class="section-rule section-rule--center"></div>
-    <p class="rsvp-lead">Please let us know if you will be celebrating with us.</p>
-
-    <div id="rsvpForm">
-      <div class="form-group">
-        <label class="form-label">Full Name</label>
-        <input type="text" class="form-input" id="rsvp-name" placeholder="Your full name" required>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Will you attend?</label>
-        <div class="radio-row">
-          <div class="radio-opt active" onclick="selectAttend(this,'yes')" data-val="yes">Joyfully Accepts</div>
-          <div class="radio-opt" onclick="selectAttend(this,'no')" data-val="no">Regretfully Declines</div>
-        </div>
-        <input type="hidden" id="rsvp-attend" value="yes">
-      </div>
-
-      <div class="form-group" id="guests-group">
-        <label class="form-label">Number of Guests (including you)</label>
-        <select class="form-select" id="rsvp-guests">
-          <option value="1">1 Guest</option>
-          <option value="2" selected>2 Guests</option>
-          <option value="3">3 Guests</option>
-          <option value="4">4 Guests</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">Message for the couple (optional)</label>
-        <textarea class="form-textarea" id="rsvp-msg" placeholder="Share your wishes or a note..."></textarea>
-      </div>
-
-      <button type="button" class="btn btn-primary btn-block" onclick="submitRSVP()">Send RSVP</button>
-    </div>
-
-    <div class="form-success" id="rsvpSuccess">
-      <span class="success-icon">✦</span>
-      <p>Thank you! Your RSVP has been received.<br>We can't wait to celebrate with you.</p>
+    <div class="rsvp-closed-box">
+      <span class="rsvp-closed-icon">&#9825;</span>
+      <p class="rsvp-closed-msg">
+        Thank you to everyone who responded.<br>
+        The RSVP deadline has passed — we can't wait to see you on April 18, 2026!
+      </p>
     </div>
   </div>
 </section>
@@ -1815,6 +1818,23 @@
   function closeNav() {
     document.getElementById('navLinks').classList.remove('open');
   }
+
+  // HASH SCROLL FIX — re-scroll after lazy images load to correct position
+  (function() {
+    if (!window.location.hash) return;
+    const id = window.location.hash.slice(1);
+    function scrollToTarget() {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const navHeight = document.querySelector('nav').offsetHeight;
+      const top = el.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+      window.scrollTo({ top: top, behavior: 'auto' });
+    }
+    window.addEventListener('load', function() {
+      setTimeout(scrollToTarget, 300);
+      setTimeout(scrollToTarget, 800);
+    });
+  })();
 
   // GALLERY LIGHTBOX
   function openLightbox(src, alt) {
