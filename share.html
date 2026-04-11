@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Photos — Kalveen & Nika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #243038;
+    --warm-white: #152028;
+    --dark: #f6f8f7;
+    --gold: #4d6d86;
+    --gold-light: #638aa3;
+    --gold-dim: #3a5568;
+    --sage: #5a7d5d;
+    --text-muted: #4a5c56;
+    --text-dim: #8a9a92;
+    --border: rgba(77, 109, 134, 0.2);
+    --border-bright: rgba(77, 109, 134, 0.38);
+    --accent: #638aa3;
+    --accent-sage: #6d9170;
+    --accent-sage-light: #9ebf9c;
+    --surface: #ffffff;
+    --surface-2: #f1f6f3;
+    --shadow-sm: 0 1px 2px rgba(21, 32, 40, 0.05);
+    --shadow-md: 0 8px 24px rgba(21, 32, 40, 0.06);
+    --radius: 6px;
+  }
+
+  html {
+    font-size: 16px;
+    background: var(--surface-2);
+  }
+
+  @media (min-width: 768px) {
+    html { font-size: 17px; }
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    color: var(--cream);
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background: var(--surface-2);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(246,248,247,0.96), rgba(246,248,247,0.88) 60%, rgba(246,248,247,0));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(77, 109, 134, 0.08);
+  }
+
+  .nav-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.45rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-back {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    opacity: 0.72;
+    transition: opacity 0.25s, color 0.25s;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-back:hover { opacity: 1; color: var(--accent-sage); }
+
+  .nav-back svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* MAIN */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 1.75rem 4rem;
+  }
+
+  /* SHARE CARD */
+  .share-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    padding: 3.5rem 2.5rem;
+    max-width: 42rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .share-illustration {
+    width: 100%;
+    max-width: 15rem;
+    margin-bottom: 2rem;
+    opacity: 0.92;
+  }
+
+  .share-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .section-tag {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent-sage);
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    margin-bottom: 0.65rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.1rem, 6vw, 3rem);
+    font-weight: 400;
+    color: var(--warm-white);
+    line-height: 1.12;
+    text-align: center;
+  }
+
+  .section-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-sage);
+    margin: 1.5rem auto;
+    opacity: 0.5;
+  }
+
+  .share-body {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.75;
+    max-width: 30rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .share-steps {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.25rem;
+    width: 100%;
+  }
+
+  .share-step {
+    flex: 1;
+    min-width: 10rem;
+    max-width: 13rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .share-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem;
+    font-weight: 400;
+    color: rgba(77, 109, 134, 0.28);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .share-step-text {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* BUTTON */
+  .btn {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 0.9rem 2.25rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.22s, border-color 0.22s, box-shadow 0.22s, color 0.22s;
+  }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--accent-sage);
+    outline-offset: 3px;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #ffffff;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* SUCCESS */
+  #upload-success {
+    display: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .success-msg {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--accent-sage);
+    text-align: center;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .footer-monogram {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.85rem;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    display: block;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .share-card {
+      padding: 2.5rem 1.5rem;
+      border-radius: 12px;
+    }
+
+    .share-steps {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .share-step {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-monogram">K & N</a>
+  <a href="index.html" class="nav-back">
+    <svg viewBox="0 0 16 16" aria-hidden="true">
+      <polyline points="10 4 6 8 10 12"/>
+    </svg>
+    Back to Site
+  </a>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="share-card">
+    <div class="share-illustration">
+      <img src="images/share-photos.png" alt="" loading="eager" decoding="async">
+    </div>
+
+    <span class="section-tag">Captured Moments</span>
+    <h1 class="section-title">Share Your Photos</h1>
+    <div class="section-rule"></div>
+
+    <p class="share-body">
+      Caught a special moment on your camera? We'd love to see the day through your eyes.
+      Upload your photos directly — no account or sign-in needed!
+    </p>
+
+    <div class="share-steps">
+      <div class="share-step">
+        <div class="share-step-num">1</div>
+        <p class="share-step-text">Tap the button below to open the uploader</p>
+      </div>
+      <div class="share-step">
+        <div class="share-step-num">2</div>
+        <p class="share-step-text">Choose photos from your camera roll or device</p>
+      </div>
+      <div class="share-step">
+        <div class="share-step-num">3</div>
+        <p class="share-step-text">Hit upload — your photos reach us instantly!</p>
+      </div>
+    </div>
+
+    <div id="upload-success">
+      <p class="success-msg">✦ Thank you! Your photos have been uploaded. ✦</p>
+    </div>
+
+    <button type="button" class="btn btn-primary" id="upload-btn" onclick="openFilestack()">
+      Upload Your Photos
+    </button>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-monogram">K & N</span>
+  <p class="footer-date">April 18, 2026 · St. Benedict Parish, Silang, Cavite</p>
+</footer>
+
+<script>
+  function openFilestack() {
+    const client = filestack.init('AdAAjYLUqTSq0nSWvjcuBz');
+    client.picker({
+      accept: ['image/*'],
+      maxFiles: 20,
+      uploadInBackground: false,
+      fromSources: ['local_file_system', 'imagesearch', 'url'],
+      onUploadDone: function(result) {
+        if (result.filesUploaded && result.filesUploaded.length > 0) {
+          document.getElementById('upload-success').style.display = 'block';
+          document.getElementById('upload-btn').textContent = 'Upload More Photos';
+        }
+      }
+    }).open();
+  }
+</script>
+<script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+
+</body>
+</html>
