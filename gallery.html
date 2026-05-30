@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Kalveen & Nika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body class="page-inner">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html?skipIntro=1" class="nav-monogram">K & N</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" onclick="closeNav()">Home</a></li>
+    <li><a href="details.html" onclick="closeNav()">Details</a></li>
+    <li><a href="gallery.html" aria-current="page" onclick="closeNav()">Gallery</a></li>
+    <li><a href="share.html" onclick="closeNav()">Share Photos</a></li>
+    <li><a href="entourage.html" onclick="closeNav()">Entourage</a></li>
+    <li><a href="rsvp.html" onclick="closeNav()">RSVP</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <span class="section-tag">Moments</span>
+  <h2 class="section-title">Our Story in Photographs</h2>
+  <div class="section-rule"></div>
+  <p class="section-intro">A few favorite frames from our journey together — thank you for being part of our next chapter.</p>
+
+  <div class="gallery-masonry">
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-01.png', 'Kalveen and Nika')" aria-label="View photo 1 larger">
+      <img src="images/gallery/gallery-01.png" alt="" loading="eager" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-02.png', 'Kalveen and Nika')" aria-label="View photo 2 larger">
+      <img src="images/gallery/gallery-02.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-03.png', 'Kalveen and Nika')" aria-label="View photo 3 larger">
+      <img src="images/gallery/gallery-03.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-04.png', 'Kalveen and Nika')" aria-label="View photo 4 larger">
+      <img src="images/gallery/gallery-04.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-05.png', 'Kalveen and Nika')" aria-label="View photo 5 larger">
+      <img src="images/gallery/gallery-05.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-06.png', 'Kalveen and Nika')" aria-label="View photo 6 larger">
+      <img src="images/gallery/gallery-06.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-07.png', 'Kalveen and Nika')" aria-label="View photo 7 larger">
+      <img src="images/gallery/gallery-07.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-08.png', 'Kalveen and Nika')" aria-label="View photo 8 larger">
+      <img src="images/gallery/gallery-08.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-09.png', 'Kalveen and Nika')" aria-label="View photo 9 larger">
+      <img src="images/gallery/gallery-09.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-10.png', 'Kalveen and Nika')" aria-label="View photo 10 larger">
+      <img src="images/gallery/gallery-10.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-11.png', 'Kalveen and Nika')" aria-label="View photo 11 larger">
+      <img src="images/gallery/gallery-11.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-12.png', 'Kalveen and Nika')" aria-label="View photo 12 larger">
+      <img src="images/gallery/gallery-12.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-13.png', 'Kalveen and Nika')" aria-label="View photo 13 larger">
+      <img src="images/gallery/gallery-13.png" alt="" loading="lazy" decoding="async">
+    </button>
+    <button type="button" class="gallery-item" onclick="openLightbox('images/gallery/gallery-14.png', 'Kalveen and Nika')" aria-label="View photo 14 larger">
+      <img src="images/gallery/gallery-14.png" alt="" loading="lazy" decoding="async">
+    </button>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button type="button" class="lightbox-close" id="lightbox-close" onclick="closeLightbox()" aria-label="Close enlarged photo">×</button>
+  <div class="lightbox-inner">
+    <img src="" alt="" id="lightbox-img" width="1200" height="800">
+    <div id="lightbox-caption" class="lightbox-caption" hidden></div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-monogram">K & N</span>
+  <p class="footer-date">April 18, 2026 · St. Benedict Parish, Silang, Cavite</p>
+  <p class="footer-tagline">Made with love</p>
+</footer>
+
+
+<script src="js/common.js"></script>
+<script src="js/gallery.js"></script>
+
+</body>
+</html>

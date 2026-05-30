@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Details — Kalveen & Nika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body class="page-inner">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html?skipIntro=1" class="nav-monogram">K & N</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" onclick="closeNav()">Home</a></li>
+    <li><a href="details.html" aria-current="page" onclick="closeNav()">Details</a></li>
+    <li><a href="gallery.html" onclick="closeNav()">Gallery</a></li>
+    <li><a href="share.html" onclick="closeNav()">Share Photos</a></li>
+    <li><a href="entourage.html" onclick="closeNav()">Entourage</a></li>
+    <li><a href="rsvp.html" onclick="closeNav()">RSVP</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- DETAILS -->
+<section id="details">
+  <span class="section-tag">The Day</span>
+  <h2 class="section-title">Wedding Details</h2>
+  <div class="section-rule"></div>
+  <p class="section-intro">Together with their families, Kalveen and Nika invite you to witness and celebrate their union on this most special day.</p>
+
+  <div class="details-grid">
+    <div class="detail-card">
+      <img src="images/venue-ceremony.png" alt="St. Benedict Parish, Silang Cavite" class="detail-venue-img" loading="lazy" decoding="async">
+      <div class="detail-body">
+        <div class="detail-icon"></div>
+        <p class="detail-title">Ceremony</p>
+        <p class="detail-main">St. Benedict Parish</p>
+        <p class="detail-sub">Ayala WestGrove<br>Silang, Cavite<br><br>April 18, 2026 · 2:00 PM</p>
+        <a href="https://www.google.com/maps?q=14.239597,121.040855" target="_blank" class="detail-link">Open in Maps →</a>
+      </div>
+    </div>
+    <div class="detail-card">
+      <img src="images/venue-reception.png" alt="Alta Veranda de Tibig, Silang Cavite" class="detail-venue-img" loading="lazy" decoding="async">
+      <div class="detail-body">
+        <div class="detail-icon"></div>
+        <p class="detail-title">Reception</p>
+        <p class="detail-main">Alta Veranda de Tibig</p>
+        <p class="detail-sub">Alcalde St., Brgy. Tibig<br>Silang, Cavite<br><br>Immediately after the ceremony</p>
+        <a href="https://www.google.com/maps?q=14.229485,121.007672" target="_blank" class="detail-link">Open in Maps →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REMINDERS -->
+  <div class="reminders-block">
+    <span class="section-tag">Please keep in mind</span>
+    <h2 class="section-title section-title--sm">Gentle Reminders</h2>
+    <div class="section-rule"></div>
+    <div class="reminders-row">
+      <div class="reminder-card">
+        <div class="reminder-illustration">
+          <img src="images/reminder-ontime.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">I</div>
+          <p class="reminder-text">Please be on time</p>
+        </div>
+      </div>
+      <div class="reminder-card">
+        <div class="reminder-illustration">
+          <img src="images/reminder-staywhole.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">II</div>
+          <p class="reminder-text">Stay for the whole event</p>
+        </div>
+      </div>
+      <div class="reminder-card">
+        <div class="reminder-illustration">
+          <img src="images/reminder-enjoy.png" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="reminder-body">
+          <div class="reminder-num">III</div>
+          <p class="reminder-text">Enjoy & have fun!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">· · ·</div>
+<div class="ornament">· · ·</div>
+<!-- ATTIRE -->
+<section id="attire">
+  <span class="section-tag">Dress Code</span>
+  <h2 class="section-title">What to Wear</h2>
+  <div class="section-rule"></div>
+  <p class="section-intro">The occasion calls for strictly formal attire. Please dress to celebrate with us.</p>
+
+  <div class="attire-grid">
+    <button type="button" class="attire-card"
+      aria-label="View dusty blue principal sponsors attire guide larger"
+      onclick="openAttireLightbox('images/attire-dusty-blue.png', 'Dusty Blue Barong Tagalog and Long Gown', 'Dusty Blue', 'Principal Sponsors · Barong Tagalog &amp; Long Gown')">
+      <div class="attire-illustration dusty-bg">
+        <img src="images/attire-dusty-blue.png" alt="" loading="lazy" decoding="async">
+        <span class="attire-zoom-hint">Tap to enlarge</span>
+      </div>
+      <div class="attire-body">
+        <div class="attire-swatch dusty"></div>
+        <p class="attire-label">Principal Sponsors</p>
+        <p class="attire-name">Dusty Blue</p>
+        <p class="attire-desc">Formal attire in shades of dusty blue.</p>
+        <div class="attire-outfits">
+          <span class="attire-outfit-tag dusty">♦ Barong Tagalog</span>
+          <span class="attire-outfit-tag dusty">♦ Long Gown</span>
+        </div>
+      </div>
+    </button>
+    <button type="button" class="attire-card"
+      aria-label="View sage green guest attire guide larger"
+      onclick="openAttireLightbox('images/attire-sage-green.png', 'Sage Green Barong Tagalog and Long Gown', 'Sage Green', 'Guests · Barong Tagalog &amp; Long Gown')">
+      <div class="attire-illustration sage-bg">
+        <img src="images/attire-sage-green.png" alt="" loading="lazy" decoding="async">
+        <span class="attire-zoom-hint">Tap to enlarge</span>
+      </div>
+      <div class="attire-body">
+        <div class="attire-swatch sage"></div>
+        <p class="attire-label">Guests</p>
+        <p class="attire-name">Sage Green</p>
+        <p class="attire-desc">Formal attire in shades of sage green.</p>
+        <div class="attire-outfits">
+          <span class="attire-outfit-tag sage">♦ Barong Tagalog</span>
+          <span class="attire-outfit-tag sage">♦ Long Gown</span>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <div class="attire-note">
+    <p>Strictly formal · No casual attire, please</p>
+  </div>
+</section>
+<div class="ornament">· · ·</div>
+<!-- GIFTS -->
+<section id="gifts">
+  <span class="section-tag">Gift Guide</span>
+  <h2 class="section-title">Your Presence is Enough</h2>
+  <div class="section-rule"></div>
+
+  <div class="gift-box">
+    <span class="gift-corner tl">&#10022;</span>
+    <span class="gift-corner tr">&#10022;</span>
+    <span class="gift-corner bl">&#10022;</span>
+    <span class="gift-corner br">&#10022;</span>
+
+    <div class="gift-ornament-top"><span>With Love</span></div>
+
+    <p class="gift-verse">
+      Your love, laughter, and company<br>
+      on our wedding day is the greatest gift of all.
+    </p>
+
+    <div class="gift-divider">· &#10047; ·</div>
+
+    <p class="gift-verse">
+      But if a gift is on your mind,<br>
+      a monetary contribution would be kind —<br>
+      it will help us more than words can say<br>
+      to celebrate our special day.
+    </p>
+
+    <div class="gift-bottom-ornament">· · &#9825; · ·</div>
+  </div>
+</section>
+
+<div class="ornament">· · ·</div>
+
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button type="button" class="lightbox-close" id="lightbox-close" onclick="closeLightbox()" aria-label="Close enlarged photo">×</button>
+  <div class="lightbox-inner">
+    <img src="" alt="" id="lightbox-img" width="1200" height="800">
+    <div id="lightbox-caption" class="lightbox-caption" hidden></div>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-monogram">K & N</span>
+  <p class="footer-date">April 18, 2026 · St. Benedict Parish, Silang, Cavite</p>
+  <p class="footer-tagline">Made with love</p>
+</footer>
+
+
+<script src="js/common.js"></script>
+<script src="js/gallery.js"></script>
+
+</body>
+</html>

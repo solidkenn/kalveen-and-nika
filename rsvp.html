@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSVP — Kalveen & Nika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+</head>
+<body class="page-inner">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html?skipIntro=1" class="nav-monogram">K & N</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" onclick="closeNav()">Home</a></li>
+    <li><a href="details.html" onclick="closeNav()">Details</a></li>
+    <li><a href="gallery.html" onclick="closeNav()">Gallery</a></li>
+    <li><a href="share.html" onclick="closeNav()">Share Photos</a></li>
+    <li><a href="entourage.html" onclick="closeNav()">Entourage</a></li>
+    <li><a href="rsvp.html" aria-current="page" onclick="closeNav()">RSVP</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+
+<!-- RSVP -->
+<section id="rsvp">
+  <div class="rsvp-inner">
+    <span class="section-tag section-tag--center">RSVP</span>
+    <h2 class="section-title">Kindly Respond</h2>
+    <div class="section-rule section-rule--center"></div>
+    <p class="rsvp-lead">
+      We would be honored by your presence. Please let us know if you can join us
+      by April 1, 2026.
+    </p>
+
+    <form id="rsvpForm" novalidate onsubmit="event.preventDefault(); submitRSVP();">
+      <input type="hidden" id="rsvp-attend" name="attending" value="">
+
+      <div class="form-group">
+        <label class="form-label" for="rsvp-name">Full Name</label>
+        <input class="form-input" type="text" id="rsvp-name" name="name" placeholder="Your full name" autocomplete="name" required>
+      </div>
+
+      <div class="form-group">
+        <span class="form-label">Will you be attending?</span>
+        <div class="radio-row" role="group" aria-label="Attendance">
+          <div class="radio-opt" tabindex="0" role="button" onclick="selectAttend(this, 'yes')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAttend(this,'yes');}">Yes, with joy</div>
+          <div class="radio-opt" tabindex="0" role="button" onclick="selectAttend(this, 'no')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectAttend(this,'no');}">Regretfully, no</div>
+        </div>
+      </div>
+
+      <div class="form-group" id="seats-group" style="display:none;">
+        <label class="form-label" for="rsvp-seats">How many seats have been reserved for you?</label>
+        <select class="form-select" id="rsvp-seats" name="seats" onchange="onSeatsChange()">
+          <option value="">Select number of seats</option>
+          <option value="1">1 seat</option>
+          <option value="2">2 seats</option>
+          <option value="3">3 seats</option>
+          <option value="4">4 seats</option>
+          <option value="5">5 seats</option>
+        </select>
+      </div>
+
+      <div id="other-guests-group" style="display:none;">
+        <span class="form-label" style="display:block;margin-bottom:0.75rem;">Other guests' names</span>
+        <div id="other-guests-fields"></div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="rsvp-message">Message for the couple</label>
+        <textarea class="form-textarea" id="rsvp-message" name="message" placeholder="Optional — share your well wishes"></textarea>
+      </div>
+
+      <p id="rsvpError" class="rsvp-error" role="alert"></p>
+
+      <button type="submit" class="btn btn-primary" id="rsvp-submit" style="width:100%;margin-top:0.5rem;">
+        Send RSVP
+      </button>
+    </form>
+
+    <div id="rsvpSuccess" class="form-success">
+      <span class="success-icon">&#10047;</span>
+      <p>Thank you for your response!<br>We can't wait to celebrate with you.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-monogram">K & N</span>
+  <p class="footer-date">April 18, 2026 · St. Benedict Parish, Silang, Cavite</p>
+  <p class="footer-tagline">Made with love</p>
+</footer>
+
+
+<script src="js/common.js"></script>
+<script src="js/rsvp.js"></script>
+
+</body>
+</html>
