@@ -10,8 +10,8 @@ function setNavOpen(isOpen) {
 }
 
 function toggleNav() {
-  var nav = document.getElementById('navLinks');
-  setNavOpen(nav ? !nav.classList.contains('open') : false);
+  var navLinks = document.getElementById('navLinks');
+  setNavOpen(navLinks ? !navLinks.classList.contains('open') : false);
 }
 
 function closeNav() {
@@ -19,12 +19,14 @@ function closeNav() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  var nav = document.getElementById('navLinks');
+  var navLinks = document.getElementById('navLinks');
+  var navBar = document.querySelector('nav');
   var btn = document.getElementById('hamburger');
 
-  if (nav) {
-    nav.addEventListener('click', function (e) {
-      if (e.target === nav) closeNav();
+  if (navBar) {
+    navBar.addEventListener('click', function (e) {
+      if (!document.body.classList.contains('nav-open')) return;
+      if (e.target === navBar || e.target === navLinks) closeNav();
     });
   }
 
